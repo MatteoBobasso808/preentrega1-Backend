@@ -1,136 +1,23 @@
 import express from 'express';
-import { ProductsManager } from './dao/productsManager.js';
+import productsRouter from './routes/products.js';
+import cartsRouter from './routes/carts.js';
 
-const PORT = 8080
-const app = express()
+const PORT = 8080;
+const app = express();
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const RutaProductos = './src/data/products.json'
-const RutaCarrito = './src/data/carrito.json'
-
-const productsManager = new ProductsManager(RutaProductos)
 
 app.get('/', (req, res) => {
-  res.send(`Bienvenidos a la tienda online
+    res.send(`Bienvenidos a la tienda online
     /api/products => muestra todos los productos
-    /api/carts => muestra todos los productos del carrito`)
-})
+    /api/carts => muestra todos los productos del carrito`);
+});
 
-app.get('/api/products/', async (req, res) => {
-    let products = await productsManager.getProducts()
-
-    let {limit} = req.query
-    if(limit){
-        products = products.slice(0, limit)
-    }
-
-    res.status(200).send(products)
-})
-
-app.get('/api/products/:pid', async (req, res) => {
-    let products = await productsManager.getProducts()
-    
-    let {pid} = req.params
-    pid = Number(pid)
-
-    if(isNaN(pid)){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El id debe ser un número'})
-    }
-
-    products = products.find(product => product.id === pid)
-    if(!products){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(404).send({error: 'El producto que buscas no existe'})
-    }
-
-    res.status(200).send(products)
-})
-
-app.post('/api/products', async (req, res) => {
-    let product = req.body
-
-    if(product.title == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene un título'})
-    }
-
-    if(product.description == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene una descripción'})
-    }
-
-    if(product.code == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene un código'})
-    }
-
-    if(product.price == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene un precio'})
-    }
-
-    if(product.stock == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene un stock'})
-    }
-
-    if(product.category == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene una categoría'})
-    }
-
-    productsManager.addProduct(product)
-    res.status(200).send({succes: 'Producto agregado correctamente'})
-})
-
-app.put('/api/products/:pid', async (req, res)=>{
-    let products = await productsManager.getProducts()
-
-    let {pid} = req.params
-    pid = Number(pid)
-    let productEdit = req.body
-    
-    if(isNaN(pid)){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El id debe ser un número'})
-    }
-
-    let product = products.find(product => product.id === pid)
-    if(!product){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(404).send({error: 'El producto que buscas no existe'})
-    }
-
-    productsManager.editProduct(pid, productEdit)
-    res.status(200).send({succes: 'Producto editado correctamente'})
-})
-
-
-app.delete('/api/products/:pid', async (req, res)=>{
-    let products = await productsManager.getProducts()
-
-    let {pid} = req.params
-    pid = Number(pid)
-
-    if(isNaN(pid)){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El id debe ser un número'})
-    }
-
-    let product = products.find(product => product.id === pid)
-    if(!product){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(404).send({error: 'El producto que buscas no existe'})
-    }
-
-    productsManager.removeProduct(pid)
-    res.status(200).send({succes: 'Producto eliminado correctamente'})
-})
+app.use('/api/products', productsRouter);
+app.use('/api/carts', cartsRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server corriendo en puerto ${PORT}`)
-})
-
+    console.log(`Server corriendo en puerto ${PORT}`);
+});
