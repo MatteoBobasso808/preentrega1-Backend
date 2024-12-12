@@ -28,6 +28,15 @@ export class ProductsManager{
         await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
     }
 
+    async editProduct(id, product){
+        let products = await this.getProducts()
+        
+        let index = products.findIndex(product => product.id === id)
+        
+        products[index] = {...products[index], ...product}
+        await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
+    }
+
     async removeProduct(id){
         let products = await this.getProducts()
         
