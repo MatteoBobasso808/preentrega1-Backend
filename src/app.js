@@ -50,9 +50,52 @@ app.get('/api/products/:pid', async (req, res) => {
 })
 
 app.post('/api/products', async (req, res) => {
-    let products = await productsManager.getProducts()
+    let product = req.body
 
-    
+    if(product.title == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene un título'})
+    }
+
+    if(product.description == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene una descripción'})
+    }
+
+    if(product.code == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene un código'})
+    }
+
+    if(product.price == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene un precio'})
+    }
+
+    if(product.status == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene un estado'})
+    }
+
+    if(product.stock == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene un stock'})
+    }
+
+    if(product.category == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene una categoría'})
+    }
+
+    if(product.thumbnails == undefined){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El producto no tiene una imagen, podes pasar un array vacío'})
+    }
+
+    productsManager.addProduct(product)
+    console.log('Producto agregado correctamente')
+
+    res.status(200).send('Producto agregado correctamente')
 })
 
 app.listen(PORT, () => {

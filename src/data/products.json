@@ -1,68 +1,101 @@
 [
-    {
-        "id": 0,
-        "title": "Zapatillas Deportivas",
-        "description": "Zapatillas ligeras y cómodas para entrenamiento diario.",
-        "code": "zp001",
-        "price": 75,
-        "status": true,
-        "stock": 20,
-        "category": "Calzado",
-        "thumbnails": []
-    },
-    {
-        "id": 1,
-        "title": "Camiseta de Algodón",
-        "description": "Camiseta básica de algodón 100% ideal para el día a día.",
-        "code": "ts002",
-        "price": 20,
-        "status": true,
-        "stock": 50,
-        "category": "Ropa",
-        "thumbnails": []
-    },
-    {
-        "id": 2,
-        "title": "Mochila Impermeable",
-        "description": "Mochila resistente al agua con múltiples compartimentos.",
-        "code": "bp003",
-        "price": 45,
-        "status": true,
-        "stock": 15,
-        "category": "Accesorios",
-        "thumbnails": []
-    },
-    {
-        "id": 3,
-        "title": "Reloj Deportivo",
-        "description": "Reloj digital con cronómetro y resistencia al agua.",
-        "code": "wt004",
-        "price": 60,
-        "status": true,
-        "stock": 10,
-        "category": "Tecnología",
-        "thumbnails": []
-    },
-    {
-        "id": 4,
-        "title": "Pantalones Deportivos",
-        "description": "Pantalones cómodos y flexibles para actividad física.",
-        "code": "pt005",
-        "price": 35,
-        "status": true,
-        "stock": 25,
-        "category": "Ropa",
-        "thumbnails": []
-    },
-    {
-        "id": 5,
-        "title": "Auriculares Bluetooth",
-        "description": "Auriculares inalámbricos con sonido envolvente.",
-        "code": "hb006",
-        "price": 85,
-        "status": true,
-        "stock": 30,
-        "category": "Tecnología",
-        "thumbnails": []
-    }
+  {
+    "id": 0,
+    "title": "Zapatillas Deportivas",
+    "description": "Zapatillas ligeras y cómodas para entrenamiento diario.",
+    "code": "zp001",
+    "price": 75,
+    "status": true,
+    "stock": 20,
+    "category": "Calzado",
+    "thumbnails": []
+  },
+  {
+    "id": 1,
+    "title": "Camiseta de Algodón",
+    "description": "Camiseta básica de algodón 100% ideal para el día a día.",
+    "code": "ts002",
+    "price": 20,
+    "status": true,
+    "stock": 50,
+    "category": "Ropa",
+    "thumbnails": []
+  },
+  {
+    "id": 2,
+    "title": "Mochila Impermeable",
+    "description": "Mochila resistente al agua con múltiples compartimentos.",
+    "code": "bp003",
+    "price": 45,
+    "status": true,
+    "stock": 15,
+    "category": "Accesorios",
+    "thumbnails": []
+  },
+  {
+    "id": 3,
+    "title": "Reloj Deportivo",
+    "description": "Reloj digital con cronómetro y resistencia al agua.",
+    "code": "wt004",
+    "price": 60,
+    "status": true,
+    "stock": 10,
+    "category": "Tecnología",
+    "thumbnails": []
+  },
+  {
+    "id": 4,
+    "title": "Pantalones Deportivos",
+    "description": "Pantalones cómodos y flexibles para actividad física.",
+    "code": "pt005",
+    "price": 35,
+    "status": true,
+    "stock": 25,
+    "category": "Ropa",
+    "thumbnails": []
+  },
+  {
+    "id": 5,
+    "title": "Auriculares Bluetooth",
+    "description": "Auriculares inalámbricos con sonido envolvente.",
+    "code": "hb006",
+    "price": 85,
+    "status": true,
+    "stock": 30,
+    "category": "Tecnología",
+    "thumbnails": []
+  },
+  {
+    "id": 6,
+    "title": "Remera Boca",
+    "description": "Camiseta del club boca juniors",
+    "code": "hjde123",
+    "price": 100,
+    "status": true,
+    "stock": 5,
+    "category": "Futbol",
+    "thumbnails": []
+  },
+  {
+    "id": 7,
+    "title": "Remera Boca",
+    "description": "Camiseta del club boca juniors",
+    "code": "hjde123",
+    "price": 100,
+    "status": true,
+    "stock": 5,
+    "category": "Futbol",
+    "thumbnails": []
+  },
+  {
+    "id": 8,
+    "title": "Remera Boca",
+    "description": "Camiseta del club boca juniors",
+    "code": "123456789",
+    "price": 100,
+    "status": true,
+    "stock": 5,
+    "category": "Futbol",
+    "thumbnails": []
+  }
 ]

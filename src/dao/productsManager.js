@@ -15,27 +15,16 @@ export class ProductsManager{
         }
     }
 
-    async addUsuario(nombre, email){
-        if(!nombre || !email){
-            console.log("Nombre y email son requeridos")
-            return
-        }
-
-        let usuarios = await this.getUsuarios()
+    async addProduct(product){
+        let products = await this.getProducts()
         
         let id = 1
-        if(usuarios.length > 0){
-            id = Math.max(...usuarios.map(d => d.id)) + 1
-        }
-
-        let existe = usuarios.find(u=>u.email === email)
-        if(existe){
-            console.log(`Usuario con email ${email} ya existe`)
-            return   
+        if(products.length > 0){
+            id = Math.max(...products.map(d => d.id)) + 1
         }
         
-        let nuevoUsuario = {id, nombre, email}
-        usuarios.push(nuevoUsuario)
-        await fs.promises.writeFile(this.#path, JSON.stringify(usuarios, null, 2))
+        let newProduct = {id, ...product}
+        products.push(newProduct)
+        await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
     }
 }
