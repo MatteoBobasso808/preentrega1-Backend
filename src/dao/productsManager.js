@@ -27,4 +27,11 @@ export class ProductsManager{
         products.push(newProduct)
         await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
     }
+
+    async removeProduct(id){
+        let products = await this.getProducts()
+        
+        products = products.filter(product => product.id !== id)
+        await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
+    }
 }

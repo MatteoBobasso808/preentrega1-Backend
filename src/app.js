@@ -83,9 +83,29 @@ app.post('/api/products', async (req, res) => {
     }
 
     productsManager.addProduct(product)
-    console.log('Producto agregado correctamente')
+    res.status(200).send({succes: 'Producto agregado correctamente'})
+})
 
-    res.status(200).send('Producto agregado correctamente')
+
+app.delete('/api/products/:pid', async (req, res)=>{
+    let products = await productsManager.getProducts()
+
+    let {pid} = req.params
+    pid = Number(pid)
+
+    if(isNaN(pid)){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).send({error: 'El id debe ser un número'})
+    }
+
+    let product = products.find(product => product.id === pid)
+    if(!product){
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(404).send({error: 'El producto que buscas no existe'})
+    }
+
+    productsManager.removeProduct(pid)
+    res.status(200).send({succes: 'Producto eliminado correctamente'})
 })
 
 app.listen(PORT, () => {
