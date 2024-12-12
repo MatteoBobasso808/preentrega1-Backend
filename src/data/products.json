@@ -64,38 +64,5 @@
     "stock": 30,
     "category": "Tecnología",
     "thumbnails": []
-  },
-  {
-    "id": 6,
-    "title": "Remera Boca",
-    "description": "Camiseta del club boca juniors",
-    "code": "hjde123",
-    "price": 100,
-    "status": true,
-    "stock": 5,
-    "category": "Futbol",
-    "thumbnails": []
-  },
-  {
-    "id": 7,
-    "title": "Remera Boca",
-    "description": "Camiseta del club boca juniors",
-    "code": "hjde123",
-    "price": 100,
-    "status": true,
-    "stock": 5,
-    "category": "Futbol",
-    "thumbnails": []
-  },
-  {
-    "id": 8,
-    "title": "Remera Boca",
-    "description": "Camiseta del club boca juniors",
-    "code": "123456789",
-    "price": 100,
-    "status": true,
-    "stock": 5,
-    "category": "Futbol",
-    "thumbnails": []
   }
 ]

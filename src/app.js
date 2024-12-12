@@ -72,11 +72,6 @@ app.post('/api/products', async (req, res) => {
         return res.status(400).send({error: 'El producto no tiene un precio'})
     }
 
-    if(product.status == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene un estado'})
-    }
-
     if(product.stock == undefined){
         res.setHeader('Content-Type', 'application/json')
         return res.status(400).send({error: 'El producto no tiene un stock'})
@@ -85,11 +80,6 @@ app.post('/api/products', async (req, res) => {
     if(product.category == undefined){
         res.setHeader('Content-Type', 'application/json')
         return res.status(400).send({error: 'El producto no tiene una categoría'})
-    }
-
-    if(product.thumbnails == undefined){
-        res.setHeader('Content-Type', 'application/json')
-        return res.status(400).send({error: 'El producto no tiene una imagen, podes pasar un array vacío'})
     }
 
     productsManager.addProduct(product)

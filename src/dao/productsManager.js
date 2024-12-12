@@ -22,8 +22,8 @@ export class ProductsManager{
         if(products.length > 0){
             id = Math.max(...products.map(d => d.id)) + 1
         }
-        
-        let newProduct = {id, ...product}
+
+        let newProduct = {id, ...product, status: true, thumbnails: []}
         products.push(newProduct)
         await fs.promises.writeFile(this.#path, JSON.stringify(products, null, 2))
     }
